@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product NPS (pNPS)</title>
+</head>
+<body>
+
+<p>More information about pNPS and product analytics including Snowplow is available here: [https://app.happeo.com/pages/1e3moaor770hvlbtd6/ProductAnalytics/1f64icqkrqnpvpe3u9].</p>
+
+<p>Product NPS (Net Promoter System) is used to measure and follow up on the customer experience related to a specific customer-facing product or service. On this page, you can find material related to the Product NPS work we do in Visma.</p>
+
+<p>Why and how do we do pNPS? In Visma, we have a long history of working with the Net Promoter System (NPS). We collect feedback in regards to a transaction (for example support cases), relationships (between key customer stakeholders and us), and from our employees. As a software company, we would, of course, like to have a constant stream of feedback related to our products. None of the previously mentioned types of feedback is specifically aimed at product feedback. This is where pNPS comes into the picture, with the objective to supply development teams and the rest of the organization with continuous feedback from our most important stakeholders - our customers and users. All products we do NPS in should be products that our customers and users consider as distinct products. In Visma, we do have some internal products/modules that we call products, but that wouldn't be considered a product, but rather functionality, to customers or users. For these features, we can do other sorts of measurements.</p>
+
+<p>The preferred solution for conducting pNPS surveys in the Visma Group is InMoment (previously Wootric). If you would like to see an interactive demo survey at InMoment (previously Wootric)'s webpage, go to this page and click the button &quot;See the in-app survey in action&quot;. There's also a demo of the dashboard that can be found here. We have a corporate agreement with InMoment (previously Wootric) that gives us licenses to our whole product portfolio. Costs for this license are covered centrally in the Visma Group, meaning that any product can implement the InMoment (previously Wootric) platform without direct license cost. Contact Paula Kalni&#326;a to get started. Below, you will find more info about pNPS, starting off with some implementation guidelines.</p>
+
+<p>Privacy and Security Have we thought about GDPR? In GDPR terms, we classify ourselves as Data Controller when it comes to customer feedback. We also say that we have a legitimate interest to collect feedback. Information about this and the balancing test can be found here. Classifying ourselves as Data Controllers for the customer feedback is a strategic choice to avoid having to inform explicitly about a new subcontractor in regards to a data processing agreement (DPA) with the customer. If we were to use another approach, we would probably have a massive storm of complaints coming our way, especially from customers in the Enterprise division. We see these reasons for not having to update DPA's to use InMoment (previously Wootric) for customer feedback:</p>
+
+<p>We have a legitimate interest to improve the quality of our products (see legitimate interest page again) We will and should not send customer-owned data to InMoment (for example their financial data that they enter into our systems), we will only send the feedback and information we have about the customer and user in order to be able to follow-up the feedback. In the survey, it will be visible that the survey is powered by InMoment (previously Wootric). We will also have the opportunity to show a link to a privacy page regarding how we handle customer feedback. A specific page has been set up that we can link to for Visma-branded products, you find that page here. It is possible to customize this link for non-Visma branded products. See the implementation section below for more details on how it looks, and how to get it implemented. With this, we have the general legal aspects covered. If you have any specific obligations towards your customers or see any business risk of implementing this in your product, this needs to be evaluated case by case. Let's say that we, for example, have an explicit part of the terms of service stating that we should never use any third-party providers, then we can't use a third-party provider.</p>
+
+<p>Do we have a data processing agreement in place with InMoment (previously Wootric)? Yep, take a look here: https://drive.google.com/file/d/1ntDRcfpK7r9yi0surYU0_qvYTPLPWhJn/view</p>
+
+<p>Security Security aspects are something that each product team will have to consider and the product manager to accept. The procedures around this vary between products and divisions. There is an overall security assessment that has been made, but this is not to replace the standard security principles of your organization. To simplify things, a template for risk assessment has been created and can be found here. This template is based on the SMB division's standards.</p>
+
+<p>Implementation Guidelines This section below aims to provide the necessary information to implement Product NPS into your application. It starts with a checklist of things to complete to have a successful Product NPS onboarding: Initiate an intro meeting with paula.kalnina@visma.com to discuss an implementation plan and to get access to InMoment (previously Wootric). Get commitment from product management and other stakeholders (business units etc.) Design the follow-up process Technical implementation (see the section below) Choose what to ask, how many to ask, when to ask, etc. (review these settings with your main UX developer) If you have a bit advanced multi-language setup, make sure to customize that. Supply additional data to enable segmentation and filtering. Add a privacy link if you're a Visma-branded company or if you have a privacy policy that you need to refer to. Make sure to have signed-off a risk assessment. Make sure you have nothing in your contract with the customer that prohibits you from collecting customer feedback and storing the data at a third party. We have thought about GDPR (see this section above) but if you have some special commitment for your customers you will have to look into that. Set up a communication plan with the business unit(s) Test the implementation thoroughly (all languages, options, etc.) Launch</p>
+
+<p>Who to ask the pNPS question? Inside of our products, there are (almost) no rights and wrongs around who we ask about NPS, CES, or CSAT (the different questions/methodologies are described below). If they are using our products, we are interested to know what they think. We should, however, make sure that we either don't ask, or &quot;invalidate&quot; (there's a feature for that in InMoment (previously Wootric)) the answers that come from Visma employees or our partners. What is interesting however is the ability to know who thinks what (in order to be able to follow up the feedback with them) and also what type of customers think what on an aggregated level. To do this, we need to supply some identifiers and if possible also more information about the customer such as example product segment, customer segment, country, etc. Everything we provide together with the answer will be parameters that we can filter on in the analysis phase.</p>
+
+<p>If we would like to target a survey to a specific group of customers, we will need to limit the survey script trigger within the application so that it is only run for that group of customers. This is something we have to do on our side, in our backend.</p>
+
+<p>What to ask? In InMoment (previously Wootric), we have the possibility to ask different types of questions that are appropriate for different settings and aims. The short and general guideline on what metric to choose is this: NPS is for overall feedback, customer effort score is used for surveying the ease of use of a specific touchpoint/scenario/process, while CSAT is used for the satisfaction of a specific feature/functionality or even product if the &quot;likelihood to recommend&quot; aspect of NPS is not fitting. If only one of these metrics is to be used, it is generally NPS. CES and CSAT can be used as complement for more targeted initiatives. Even though this page is about NPS, they are all described briefly below.</p>
+
+<p>Net Promoter System (NPS) The Net Promoter System is a central part of Visma's customer experience program. In short, it measures the likelihood for customers to recommend us to others and is based on two core questions.</p>
+
+<p>Question 1: We start by asking &quot;On a scale from 0-10, how likely are you to recommend X to Y&quot;, where X in pNPS is the product, and Y is the audience, &quot;a friend or coworker&quot; for example or simply &quot;others&quot;. The pNPS question is the same for all products (only the product name and the audience can be changed) and should remain the same because we want the pNPS score to be comparable between products.</p>
+
+<p>Question 2: The second question can vary a bit, even depending on the score The standard NPS methodology is to simply ask &quot;Why?&quot; or &quot;What's the main reason for your score?&quot;. To get more specific feedback, it is possible to ask for example &quot;What should we improve?&quot;. And as stated earlier, these different formulations can be used for different answer segments, so that detractors (those answering 0-6 on the first question) and passives (those who answer 7-8) get the follow-up &quot;What should we improve?&quot; while the rest gets &quot;What's the main reason for your score?&quot;.</p>
+
+<p>The pNPS questions are not necessarily connected to a specific feature but aim to target the customer's relationship to a specific product. It can, therefore, be asked in basically any context of an application. See the section on When to ask below for more ideas around this.</p>
+
+<p>Read more about NPS from InMoment (previously Wootric) here: https://confluence.visma.com/pages/viewpage.action?pageId=596135685</p>
+
+<p>Customer Effort Score (CES) CES is used when we want to get insights into how easy something is to use or do. The initial question is &quot;How easy was it for you to complete this task or action&quot; where &quot;task or action&quot; can be replaced by anything. For example, how easy was it for you to send this invoice? After the first question, we use an open-ended second question to learn more, for example, &quot;Care to tell us why?&quot;.</p>
+
+<p>Read more about CES from InMoment (previously Wootric) here. You can also find a more detailed overview of how to implement it here: https://confluence.visma.com/pages/viewpage.action?pageId=596135685</p>
+
+<p>Customer Satisfaction (CSAT) CSAT is used when we want to get insights into how satisfied the customer is with something. The initial question is &quot;How satisfied are you with X?&quot; where &quot;X&quot; can be anything. For example, &quot;How satisfied are you with the invoicing module?&quot; After the first question, we use an open-ended second question to learn more, just like for CES as described above. for example &quot;Care to tell us why?&quot;.</p>
+
+<p>Read more about CSAT from InMoment (previously Wootric) here: https://confluence.visma.com/pages/viewpage.action?pageId=596135685</p>
+
+<p>When to ask The context in which we ask questions can affect the willingness to complete the survey, and also how big an impact it has on the user experience. We, of course, want high response rates for obvious reasons, and we don't want to disturb the customers in their work. This section contains some guidelines to increase the response rate and limit the impact on user experience.</p>
+
+<p>Not too often Look to yourself - I'm pretty sure you don't like being bombarded with surveys, right? Neither does anyone else. We, therefore, have to be selective of how often we present our customers with surveys. For NPS, we have found that every 180 days is an appropriate amount of time before asking the same question(s) again. Both CES and CSAT can be aimed at more specific touchpoints in more of a campaign fashion. How often we ask those questions, therefore, depends more on our feedback needs. This is not something we have experience with, so we will need to find the timing through testing. A starting guideline is to not ask the same type of question (either CES and CSAT) more often than every 100 days, to the same user.</p>
+
+<p>If a user chooses to not answer a survey, we shouldn't keep nagging each time they use the application. After a declined survey, we should wait at least the same amount of time as if they have answered, i.e. 180 days, until asking again.</p>
+
+<p>Both of the settings discussed above are set easily in the &quot;Customize Sampling&quot; setting of the InMoment (previously Wootric) web interface.</p>
+
+<p>In summary: We want to ask as seldom as possible, and the limits are NPS maximum every 180 days, CES maximum every 100 days, CSAT maximum every 100 days. Any declined survey should generate a quarantine that is at least the same length as the quarantine for an answer.</p>
+
+<p>With timing Trigger surveys when an action has been completed - for example after an invoice has been sent. Since we want our customers to be productive and efficient, we should avoid presenting surveys when they are the most focused on their work. When it is appropriate to show a survey varies between products. Before implementing a survey, make sure to consult a UX-savvy person to give input.</p>
+
+<p>A functionality worth considering is the possibility to set time from page load after which the survey should be shown. This is easily set in the InMoment (previously Wootric) web interface as well.</p>
+
+<p></p>
+
+<p>How many to ask The golden rule is that we should never collect more feedback than we can handle and follow up in a good way. Handling and following up doesn't just mean compiling a report and using the feedback as statistics. We must be able to also look into the qualitative feedback that customers give us, and in some cases contact the customer, either to assist or to just get more insights into the customer's feedback. Since the amount of feedback has to do with how much we can follow up, the quantity depends on the number of resources we can put on this. But hey, we want to listen to our customers, so this should be a high priority that we put lots of focus on.</p>
+
+<p>When we know how much feedback we can handle, we can set limits on how many answers to collect. In InMoment (previously Wootric), it is possible to set both a percentage of the visitor base and also a daily response cap.</p>
+
+<p>One more thing to consider when deciding how many to ask is that we want to have continuous feedback. We, therefore, don't want to empty our potential answer-base during a quarantine period. This shouldn't be a problem in most cases, but for a product with 1000 users that log in to the application every month, we can't ask to have 100% of them, since we then won't have any users to ask in the coming five months (applying the NPS 6 month quarantine rules).</p>
+
+<p>Technical Implementation Notes Just to give you some initial information, the implementation consists of placing JavaScript in the frontend. That's where we decide what data (custom attributes) we send about the customer/user for enabling later analysis. General documentation of the implementation can be found from the supplier InMoment (previously Wootric) here. If you want to read more about the custom attributes, you find them in this section. If Segment, Google Tag Manager, or another tag manager is used in a product wanting to implement pNPS, those tools can be utilized for simplifying the implementation.</p>
+
+<p>Adding a Privacy Link in Survey  A Visma-specific feature in InMoment (previously Wootric) is the ability to add a privacy link, something we want to do to fulfil our commitment as a data controller for the feedback. See more in the privacy and security section above. Below is an illustration of how it can look.</p>
+
+<p> Some extra parameters are added to the InMoment (previously Wootric) JavaScript in order to get the privacy info and link in place. Below you can see an example of how to do that.</p>
+
+<p>The recommended text to use is &quot;Privacy Statement&quot; where the &quot;Privacy Statement&quot; should be hyperlinked to the privacy statement page. This statement is specifically for the products that use InMoment.</p>
+
+<p> Note: If you are currently using a hyperlink to the old privacy statement, you need to update it with the new link. The update is necessary in order to reflect the actual processing done so end users receive the correct information as requested by the GDPR.</p>
+
+<p>Multi-Language Setup Do you need a multi-language survey? No problem! That's supported natively by the default language support in InMoment (previously Wootric). If you have a bit more complicated language setup, for example, that you need different product names for different languages, or you have multiple languages and want an audience other than &quot; friend or co-worker&quot; or a follow-up question other than &quot; Thank you! Care to tell us why?&quot;, you can either use the multi-survey and targeted sampling functionality in InMoment (previously Wootric) or make some customizations in the Javascript. The functionality in InMoment (previously Wootric) is described below. The Javascript alternative is not particularly complicated either, we have done it in many products already and here's some example code (please don't use the phrases from this code directly, however, since they contain too much sentiment such as &quot;happy&quot; etc.) that you can share with code-savvy people and they'll say &quot;cool, no problem!&quot; If you have any further questions regarding this, get in contact with J&#363;lija Kirillova .</p>
+
+<p>There are some guidelines for questions in different languages that can be found in this document.</p>
+
+<p>It is now possible to customize the end of the NPS question regarding who you wish to address the question to. Therefore, you can choose if you wish it to be a friend or a colleague, others or a co-worker.</p>
+
+<p>You also have the possibility to customize the entire question for CES and CSAT since these are not reported on an aggregated level. To enable this function you need to write to InMoment (previously Wootric) using the chat in the bottom right corner.</p>
+
+<p>Multi-Survey and Targeted Sampling (advanced account) Late 2020, there was new functionality announced in InMoment (previously Wootric), allowing for multiple surveys for one account, and targeted sampling for these surveys. This works for all survey types, meaning NPS, CSAT, and CES.</p>
+
+<p>Let's imagine you want to do CES surveys for two different processes/scenarios: Scenario X and Scenario Y.</p>
+
+<p>What you would do then is to set up two surveys (under Customize Survey), one for Scenario X and one for Scenario Y, respectively asking &quot;How easy was it for you to X/Y?&quot;. You then, for the targeted sampling, send a parameter as additional data that you can filter on, maybe called &quot;scenarios&quot; where you for the cases when you want to trigger Scenario X send &quot;X&quot; as the content. You can then set up the triggers to launch scenario X by setting up the following InMoment (previously Wootric) inside Targeted Sampling:</p>
+
+<p>Repeat this process for Scenario Y if you have another scenario you want to survey.</p>
+
+<p>Supplying additional data To enable more in-depth analysis, we can send additional data (called custom attributes) about the customer. This is described in general in this blog post and in more technical detail in this section of the InMoment (previously Wootric) documentation.</p>
+
+<p> Following Up pNPS Surveys Communicating the Feedback Internally Depending on what current forums and stakeholder groups exist around your product already, the internal communication around the feedback will vary. Possible channels for communication are:</p>
+
+<p>An internal blog Stakeholder meetings (for example the monthly Product Unit (PU) stakeholder meetings if your product takes part in those Stakeholder meetings between product teams and business units All-hands meetings Things that should be communicated are:</p>
+
+<p>Results (last month) and development (for example trend of the last twelve months) Top feedback topics Planned actions based on the feedback To even further increase internal awareness and interest around customer experience in general and Product NPS in particular, some examples are to:</p>
+
+<p>Include a stream of product feedback in your team communication tool such as Slack, Hangouts Chat, or similar Set up a dashboard on a screen in a common area, see two examples below. The first is a screen found on the 9th floor at Sk&oslash;yen (Oslo) showing a Visma eAccounting dashboard, and to the second one a screen on the 5th floor also at Sk&oslash;yen showing a Visma.net Expense dashboard.</p>
+
+<p>For this purpose, InMoment (previously Wootric) also has TV functionality, which can be found in the top menu. This TV mode auto-refreshes shows live anonymized survey responses, trends, and a summary of the CX metric (NPS, CES or CSAT) on a one-pager.</p>
+
+<p>Cross-Functional Communication (e.g. Product Team and Business Unit) The process of managing product NPS (pNPS) answers should start with the product teams since the pNPS feedback most often will be product-related. It is, however, important to have communication channels in place that supports involvement from other teams, teams within BU's, for example. The process will vary naturally from product to product. The important thing is that we make sure to have a process in place with clear objectives and ownership for following up on the feedback we receive. This should be in place before surveying begins.</p>
+
+<p>Below is an idea draft of how the data can flow for visualization, reporting, and for example Trello/Jira, etc. for follow-up.</p>
+
+<p>The process will vary from product to product. The team- and organizational structure will play an important part in the process design. What is important is however that there is a clear responsibility for who is responsible for the feedback being analyzed and taken action on. This includes:</p>
+
+<p>Ensuring established communication channels for customer feedback between organizational functions, typically between product teams and business units. Ideally, there's a forum where this communication can happen. Making feedback accessible to relevant stakeholders (management, development teams, sales- &amp; marketing organizations, etc.) Analyzing feedback and communicating the most important improvement areas to stakeholders (see examples of stakeholders above). Will vary between stakeholder groups. Include customer feedback in daily or weekly standup meetings? Following up and documenting action plans and actions taken based on customer feedback. Making sure that we &quot;close the loop&quot; with customers, meaning that we communicate back to customers in an appropriate way when we make changes based on their feedback, or contact customers directly when they seem to need help and fall within a customer segment that allows this type of action (see this section). Here is a suggestion for how responsibilities can be divided between functional teams:</p>
+
+<p>Product development team Go through feedback continuously Use feedback to build and prioritize development roadmap based on usability, functionality, etc Communicate with the business unit to improve customer experience and improve processes around Product NPS Customer Experience / Success team Go through feedback continuously Get in touch with users/customers that are really dissatisfied and seems to be a churn risk. This is difficult to define in detail, use your business skills (smile) Get in touch with users/customers that seem to struggle and that we can help through support Communicate with the product development team to improve customer experience and improve processes around Product NPS Using InMoment (previously Wootric) Dashboard and Reporting More info will come. In the meantime, please refer to the InMoment (previously Wootric) documentation.</p>
+
+<p>Handling Individual Customer Feedback Items In the Feedback section of InMoment (previously Wootric), we find a list of all feedback items.</p>
+
+<p>If we're interested to see what customers say, we can filter so that we only see the feedback items that have comments.</p>
+
+<p>Adding tags. Tags make it easy to filter on specific feedback themes, and also see trends for specific themes. To add a tag, simply type text in the &quot;ADD A TAG&quot; box. Once tags are added, you see them on the feedback &quot;card&quot;. The symbol beside &quot;NORWEGIAN&quot; below is the symbol for manually added tags, while the tag besides &quot;ATTACH&quot; is an &quot;auto tag&quot;. Auto tags can be set up and are based on word matches. These tags make it more efficient to do tagging, but require some initial work on setup. More on this will be documented at a later stage.</p>
+
+<p>For each product, we should set up some standards when it comes to tags. We don't want to have hundreds of tags. One example can be &quot;contact_customer&quot; for when business units should get in touch with customers and follow up on their feedback. This tag can be set by anyone who sees a comment that is critical that we follow up.</p>
+
+<p>Adding notes In addition to adding tags, we can also take notes on the feedback items. Say that someone added a &quot;contact_customer&quot; tag and would like to explain why this can be done through the notes. Notes are added by clicking . These notes are visible to everyone who can access the feedback. Remember that you don't have to add a tag to add notes. They are independent.</p>
+
+<p>Marking as Complete It is also possible to mark feedback items as completed by clicking . Continuing our example with the &quot;contact_customer&quot; example. When the business unit has contacted the customer and taken action on the feedback, it can be marked complete to indicate that the feedback item is handled and that there's nothing more to do on that feedback within Wootric.</p>
+
+<p>Customer Communication Segmentation The type of communication that can be &quot;afforded&quot; depends on the customer value and the number of customers. The communication types can be divided into three segments: high-, low-, and tech-touch. as described below.</p>
+
+<p> High Touch For customers with a high value, we can afford to be people-intensive. This is justified by the price the customer is paying for the product or service. High-touch activities are one-on-one interactions, for example:</p>
+
+<p>Onboarding Monthly status meetings Executive business reviews (biannually or quarterly) On-site visits Regular health checks The proposed follow-up is to call the customer within X workdays. The number of days will be decided case-by-case for different products.</p>
+
+<p>Low Touch A blend of high touch (above) and tech touch (below), combining elements of each. The low-touch model is for in-between customers, not big or strategic enough to warrant white-glove treatment of the high-touch customers but important enough that you are willing to do some level of one-on-one touch with them. Examples of changes in the interactions from high- to low-touch customers:</p>
+
+<p>Onboarding Executive business reviews (annually) Regular automated health checks The proposed follow-up is to email the customer. A base of email templates for common cases should be developed over time. These should be somewhat modified to fit each case.</p>
+
+<p>Tech Touch Customers not big or strategic enough to justify direct one-to-one contact. It's important to get an automatic or at least one-to-many communication in place for this segment, for example:</p>
+
+<p>Newsletters In-app communication (for example update info) Communities Customer summits When communicating changes that have been made based on customer feedback, we should also highlight this. This can be highlighted by starting out update info with for example &quot;based on feedback from you, our customers, we have ...&quot;. This is the one-to-many approach. If we are able to produce automatically generated content, for example through email or some other digital channel, that's a way of doing communicating with a one-to-one feel. The richer the data the better.</p>
+
+<p>Main contact about Product NPS is paula.kalnina@visma.com</p>
+
+<p>Is InMoment free? Sort of. It is available to all companies as part of a Visma group agreement for no additional charge. Its cost is included in the corporate fee.</p>
+
+<p>More information about pNPS and product analytics including Snowplow is available here: [https://app.happeo.com/pages/1e3moaor770hvlbtd6/ProductAnalytics/1f64icqkrqnpvpe3u9].</p>
+
+</body>
+</html>
